@@ -24,6 +24,9 @@ var myMiddlware = (req, res, next) => {
     next();
 };
 app.use(myMiddlware);
+app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send('Main page');
+}));
 app.get('/products', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const listOfProducts = yield prisma.productos.findMany();
     if (listOfProducts.length) {
