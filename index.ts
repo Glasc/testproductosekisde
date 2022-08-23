@@ -23,6 +23,10 @@ type Product = {
   price: number
 }
 
+app.get('/', async (req: Request, res: Response) => {
+  res.send('Main page')
+})
+
 app.get('/products', async (req: Request, res: Response) => {
   const listOfProducts: Product[] = await prisma.productos.findMany()
   if (listOfProducts.length) {
